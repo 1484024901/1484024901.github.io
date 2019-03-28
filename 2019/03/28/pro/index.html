@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：\50   30   90    50 \60   80   40   10 \90   70   100   20 \做运输方  问题的抽象设三个仓库分别为$Mi$，$i=1,2,3$\四个目的地分别为$A_j$，$j=1,2,3,4$\从仓库$M_i$运">
+<meta name="description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$i=1,2,3$四个目的地分别为$A_j$，$j=1,2,3,4$从仓库$M_i$运送到目的地$A_">
 <meta property="og:type" content="article">
 <meta property="og:title" content="运输问题的单纯形解法">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/pro/index.html">
 <meta property="og:site_name" content="Ltxin&#39;s personal website">
-<meta property="og:description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：\50   30   90    50 \60   80   40   10 \90   70   100   20 \做运输方  问题的抽象设三个仓库分别为$Mi$，$i=1,2,3$\四个目的地分别为$A_j$，$j=1,2,3,4$\从仓库$M_i$运">
+<meta property="og:description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$i=1,2,3$四个目的地分别为$A_j$，$j=1,2,3,4$从仓库$M_i$运送到目的地$A_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-28T05:42:45.665Z">
+<meta property="og:updated_time" content="2019-03-28T15:44:45.400Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运输问题的单纯形解法">
-<meta name="twitter:description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：\50   30   90    50 \60   80   40   10 \90   70   100   20 \做运输方  问题的抽象设三个仓库分别为$Mi$，$i=1,2,3$\四个目的地分别为$A_j$，$j=1,2,3,4$\从仓库$M_i$运">
+<meta name="twitter:description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$i=1,2,3$四个目的地分别为$A_j$，$j=1,2,3,4$从仓库$M_i$运送到目的地$A_">
 
 
 
@@ -320,10 +320,10 @@
 
       
         <h1 id="运输问题的单纯形解法"><a href="#运输问题的单纯形解法" class="headerlink" title="运输问题的单纯形解法"></a>运输问题的单纯形解法</h1><blockquote>
-<p>问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：\<br>50   30   90    50 \<br>60   80   40   10 \<br>90   70   100   20 \<br>做运输方</p>
+<p>问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：<br>50   30   90    50<br>60   80   40   10<br>90   70   100   20<br>做运输方</p>
 </blockquote>
-<h2 id="问题的抽象"><a href="#问题的抽象" class="headerlink" title="问题的抽象"></a>问题的抽象</h2><p>设三个仓库分别为$M<em>i$，$i=1,2,3$\<br>四个目的地分别为$A_j$，$j=1,2,3,4$\<br>从仓库$M_i$运送到目的地$A_j$的单位成本（花费时间）为$c</em>{ij}$ \<br>则有：</p>
-<script type="math/tex; mode=display">\sum_{i=1}^3 M_i=\sum_{j=1}^4 A_j=50</script><p>需要求解的运输方案即：从仓库$M<em>i$运送到目的地$A_j$的货物数目，记它为$x</em>{ij}$<br>则问题等价于求解线性规划问题：</p>
+<h2 id="问题的抽象"><a href="#问题的抽象" class="headerlink" title="问题的抽象"></a>问题的抽象</h2><p>设三个仓库分别为$M_i$，$i=1,2,3$<br>四个目的地分别为$A_j$，$j=1,2,3,4$<br>从仓库$M_i$运送到目的地$A_j$的单位成本（花费时间）为$c_{ij}$<br>则有：</p>
+<script type="math/tex; mode=display">\sum_{i=1}^3 M_i=\sum_{j=1}^4 A_j=50</script><p>需要求解的运输方案即：从仓库$M_i$运送到目的地$A_j$的货物数目，记它为$x_{ij}$<br>则问题等价于求解线性规划问题：</p>
 <script type="math/tex; mode=display">min \sum_{i=1}^3 \sum_{j=1}^4 c_{ij}x_{ij} \\
 s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
 \sum_{j=1}^4 x_{ij}=M_i</script><p>用表格表示如下：</p>
@@ -380,7 +380,7 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
 </blockquote>
 <p><strong>例</strong></p>
 <ol>
-<li>首先填写左上角$x<em>{11}$，<code>行和</code>为18，<code>列和</code>为12，则$x</em>{11}$最大为12</li>
+<li>首先填写左上角$x_{11}$，<code>行和</code>为18，<code>列和</code>为12，则$x_{11}$最大为12</li>
 </ol>
 <div class="table-container">
 <table>
@@ -418,7 +418,7 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
 </table>
 </div>
 <ol>
-<li>第一列 <code>列和</code> 已经得到满足，第一行还没有，则考虑$x<em>{11}$右边单元格$x</em>{12}$，最大为6</li>
+<li>第一列 <code>列和</code> 已经得到满足，第一行还没有，则考虑$x_{11}$右边单元格$x_{12}$，最大为6</li>
 </ol>
 <div class="table-container">
 <table>
@@ -456,7 +456,7 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
 </table>
 </div>
 <ol>
-<li>第一行 <code>行和</code> 已经得到满足，考虑第二列，考虑$x<em>{12}$下方单元格$x</em>{22}$，最大为2</li>
+<li>第一行 <code>行和</code> 已经得到满足，考虑第二列，考虑$x_{12}$下方单元格$x_{22}$，最大为2</li>
 </ol>
 <div class="table-container">
 <table>
@@ -536,7 +536,7 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
 </table>
 </div>
 <blockquote>
-<p>注：此表代表：$x<em>{11}=12,x</em>{12}=6,x_{13}=0,\cdots$</p>
+<p>注：此表代表：$x_{11}=12,x_{12}=6,x_{13}=0,\cdots$</p>
 </blockquote>
 <h3 id="2-计算单纯形乘子"><a href="#2-计算单纯形乘子" class="headerlink" title="2 计算单纯形乘子"></a>2 计算单纯形乘子</h3><p>首先写出成本矩阵：</p>
 <script type="math/tex; mode=display">C=
