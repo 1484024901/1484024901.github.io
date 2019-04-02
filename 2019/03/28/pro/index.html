@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$i=1,2,3$四个目的地分别为$A_j$，$j=1,2,3,4$从仓库$M_i$运送到目的地$A_">
+<meta name="description" content="运输问题的单纯形解法 问题的抽象 问题求解 1 寻找基础可行解 2 计算单纯形乘子       运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$">
 <meta name="keywords" content="最优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="运输问题的单纯形解法">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/pro/index.html">
 <meta property="og:site_name" content="Ltxin&#39;s personal website">
-<meta property="og:description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$i=1,2,3$四个目的地分别为$A_j$，$j=1,2,3,4$从仓库$M_i$运送到目的地$A_">
+<meta property="og:description" content="运输问题的单纯形解法 问题的抽象 问题求解 1 寻找基础可行解 2 计算单纯形乘子       运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-29T01:10:04.373Z">
+<meta property="og:updated_time" content="2019-04-02T03:09:37.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运输问题的单纯形解法">
-<meta name="twitter:description" content="运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$i=1,2,3$四个目的地分别为$A_j$，$j=1,2,3,4$从仓库$M_i$运送到目的地$A_">
+<meta name="twitter:description" content="运输问题的单纯形解法 问题的抽象 问题求解 1 寻找基础可行解 2 计算单纯形乘子       运输问题的单纯形解法 问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：50   30   90    5060   80   40   1090   70   100   20做运输方  问题的抽象设三个仓库分别为$M_i$，$">
 
 
 
@@ -320,7 +320,20 @@
       
 
       
-        <h1 id="运输问题的单纯形解法"><a href="#运输问题的单纯形解法" class="headerlink" title="运输问题的单纯形解法"></a>运输问题的单纯形解法</h1><blockquote>
+        <!-- TOC -->
+<ul>
+<li><a href="#运输问题的单纯形解法">运输问题的单纯形解法</a><ul>
+<li><a href="#问题的抽象">问题的抽象</a></li>
+<li><a href="#问题求解">问题求解</a><ul>
+<li><a href="#1-寻找基础可行解">1 寻找基础可行解</a></li>
+<li><a href="#2-计算单纯形乘子">2 计算单纯形乘子</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="运输问题的单纯形解法"><a href="#运输问题的单纯形解法" class="headerlink" title="运输问题的单纯形解法"></a>运输问题的单纯形解法</h1><blockquote>
 <p>问题:用一辆车运50批货，有3个仓库，各存有18，12，20，运到4个地方，他们各需要12，8，16，14，时间分别为：<br>50   30   90    50<br>60   80   40   10<br>90   70   100   20<br>做运输方</p>
 </blockquote>
 <h2 id="问题的抽象"><a href="#问题的抽象" class="headerlink" title="问题的抽象"></a>问题的抽象</h2><p>设三个仓库分别为$M_i$，$i=1,2,3$<br>四个目的地分别为$A_j$，$j=1,2,3,4$<br>从仓库$M_i$运送到目的地$A_j$的单位成本（花费时间）为$c_{ij}$<br>则有：</p>
