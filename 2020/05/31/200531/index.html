@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Daily,C语言,热传导,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="今天决定用C语言写热传导方程的解法，一来之前建模国赛的时候用matlab写过，二来，fortran怪怪的我实在不喜欢。  进度虽然缓慢，但好过于停滞不前，加油！   热传导方程 一维 问题背景（摘抄自网络 ） 离散方法 取参数   C语言代码 输入 输出   C语言算法总结     今日总结   热传导方程一维123u_t=\alpha\cdot \frac&amp;#123;\partial^2u&amp;#1">
+<meta name="keywords" content="Daily,C语言,热传导">
+<meta property="og:type" content="article">
+<meta property="og:title" content="5月31日记">
+<meta property="og:url" content="http://yoursite.com/2020/05/31/200531/index.html">
+<meta property="og:site_name" content="Ltxin&#39;s personal website">
+<meta property="og:description" content="今天决定用C语言写热传导方程的解法，一来之前建模国赛的时候用matlab写过，二来，fortran怪怪的我实在不喜欢。  进度虽然缓慢，但好过于停滞不前，加油！   热传导方程 一维 问题背景（摘抄自网络 ） 离散方法 取参数   C语言代码 输入 输出   C语言算法总结     今日总结   热传导方程一维123u_t=\alpha\cdot \frac&amp;#123;\partial^2u&amp;#1">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-05-31T15:04:25.707Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="5月31日记">
+<meta name="twitter:description" content="今天决定用C语言写热传导方程的解法，一来之前建模国赛的时候用matlab写过，二来，fortran怪怪的我实在不喜欢。  进度虽然缓慢，但好过于停滞不前，加油！   热传导方程 一维 问题背景（摘抄自网络 ） 离散方法 取参数   C语言代码 输入 输出   C语言算法总结     今日总结   热传导方程一维123u_t=\alpha\cdot \frac&amp;#123;\partial^2u&amp;#1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/05/31/200531/">
+
+
+
+
+
+  <title>5月31日记 | Ltxin's personal website</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ltxin's personal website</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/31/200531/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ltxin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ltxin's personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">5月31日记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-31T14:57:08+08:00">
+                2020-05-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Diary/" itemprop="url" rel="index">
+                    <span itemprop="name">Diary</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>今天决定用C语言写热传导方程的解法，一来之前建模国赛的时候用matlab写过，二来，fortran怪怪的我实在不喜欢。</p>
+<blockquote>
+<p>进度虽然缓慢，但好过于停滞不前，加油！<br><!-- TOC --></p>
+</blockquote>
+<ul>
+<li><a href="#热传导方程">热传导方程</a><ul>
+<li><a href="#一维">一维</a><ul>
+<li><a href="#问题背景摘抄自网络-">问题背景（摘抄自网络 ）</a></li>
+<li><a href="#离散方法">离散方法</a><ul>
+<li><a href="#取参数">取参数</a></li>
+</ul>
+</li>
+<li><a href="#c语言代码">C语言代码</a><ul>
+<li><a href="#输入">输入</a></li>
+<li><a href="#输出">输出</a></li>
+</ul>
+</li>
+<li><a href="#c语言算法总结">C语言算法总结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#今日总结">今日总结</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="热传导方程"><a href="#热传导方程" class="headerlink" title="热传导方程"></a>热传导方程</h1><h2 id="一维"><a href="#一维" class="headerlink" title="一维"></a>一维</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">u_t=\alpha\cdot \frac&#123;\partial^2u&#125;&#123;\partial x^2&#125; \\</span><br><span class="line">初值：u(x,0)=u_0(x)\\</span><br><span class="line">边值：u(0,t)=u(1,t)</span><br></pre></td></tr></table></figure>
+<h3 id="问题背景（摘抄自网络-）"><a href="#问题背景（摘抄自网络-）" class="headerlink" title="问题背景（摘抄自网络 ）"></a>问题背景（摘抄自网络 ）</h3><p>在距离为L的两个半无限长壁面之间有传热的流体。假设整个流场初始时刻具有温度T=T1(常数，本题中取10摄氏度)，并处于平衡状态(即：初始时刻壁面和流体的温度都为10摄氏度)。两个壁面的初始温度Tw1=Tw2=T1（本题中即为10摄氏度）。现假设在t=0时刻，右边的壁面温度突然增加到Tw2=T2并保持在T2（本题中取T2为20摄氏度），而左边的壁面温度保持在Tw1=T1（即10摄氏度）。求时间t1、t2和时间趋于无穷时壁面间流体温度的分布？</p>
+<h3 id="离散方法"><a href="#离散方法" class="headerlink" title="离散方法"></a>离散方法</h3><p>我也不知道这算啥离散,算是显式吧我觉得……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\frac&#123;u(x_i,t+\Delta t)-u(x_i,t)&#125;&#123;\Delta t&#125;=\alpha\cdot\frac&#123;u(x_&#123;i+1&#125;,t)-2u(x_&#123;i&#125;,t)+u(x_&#123;i-1&#125;,t)&#125;&#123;\Delta x^2&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="取参数"><a href="#取参数" class="headerlink" title="取参数"></a>取参数</h4><p>长度L=0.2<br>扩散系数$\alpha=1.42857\times10e-3$</p>
+<h3 id="C语言代码"><a href="#C语言代码" class="headerlink" title="C语言代码"></a>C语言代码</h3><p>先用我熟悉的语言，明天试试fortran(哭泣……我又在拖延了)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> dx,dt,t,L=<span class="number">0.2</span>,a[<span class="number">100000</span>],b[<span class="number">100000</span>],alpha=<span class="number">1.42857</span>*<span class="number">10e-3</span>;</span><br><span class="line">    <span class="comment">/*dx表示delta(x)，dt表示delta(t)，alpha为热扩散率。由于数组大小随输入值而变化，所以取得比较大*/</span></span><br><span class="line">    <span class="keyword">int</span> i,n1,n2,n=<span class="number">0</span>,total=<span class="number">0</span>;</span><br><span class="line">    FILE *F;<span class="comment">//文件指针</span></span><br><span class="line">    F=fopen(<span class="string">"data.txt"</span>,<span class="string">"w"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data dx:\n"</span>);          <span class="comment">/*输入壁面间网格节点的间距dx*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;dx);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data dt:\n"</span>);          <span class="comment">/*输入时间推进的步长dt*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;dt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data t:\n"</span>);           <span class="comment">/*输入计算的总时间，代表题目中的t1、t2等*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;t);</span><br><span class="line">    n1=(<span class="keyword">int</span>)(L/dx);</span><br><span class="line">    n2=(<span class="keyword">int</span>)(t/dt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"n1=%d  n2=%d\n"</span>,n1,n2);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;     <span class="comment">/*初始赋值*/</span></span><br><span class="line">        <span class="keyword">if</span>(i&lt;n1)a[i]=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">else</span> a[i]=<span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(n&lt;n2)&#123;    <span class="comment">/*时间到了，停止循环*/</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;</span><br><span class="line">        <span class="comment">/*计算*/</span></span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">            b[i]=<span class="number">10</span>;</span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;     <span class="comment">/*表示左壁面的温度始终保持在10摄氏度*/</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(i==n1)&#123;</span><br><span class="line">            b[i]=<span class="number">20</span>;</span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;     <span class="comment">/*表示右壁面的温度始终保持在20摄氏度*/</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            b[i]=a[i]+alpha*dt*(a[i+<span class="number">1</span>]<span class="number">-2</span>*a[i]+a[i<span class="number">-1</span>])/(dx*dx);   <span class="comment">/*差分方程的表达式*/</span></span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;</span><br><span class="line">        n++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*输出文件*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(F,<span class="string">"%8.4f"</span>,a[i]);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%8.4f"</span>,a[i]);</span><br><span class="line">            <span class="keyword">if</span>(total%<span class="number">10</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">            total++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fprintf</span>(F,<span class="string">"\n"</span>);</span><br><span class="line">    fclose(F);                       <span class="comment">/*一直迭代到满足的次数为止*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>dx=0.01<br>dt=0.001<br>t=10</p>
+<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p> 10.0000 10.3549 10.7139 11.0804 11.4577 11.8488 12.2561 12.6821 13.1283 13.5962 14.0863 14.5990 15.1338 15.6898 16.2656 16.8592 17.4683 18.0901 18.7215 19.3593 20.0000</p>
+<h3 id="C语言算法总结"><a href="#C语言算法总结" class="headerlink" title="C语言算法总结"></a>C语言算法总结</h3><ul>
+<li>内存可以优化，试试动态内存优化</li>
+<li>可以试着作图（然鹅除了matlab还有啥可以画彩图）</li>
+<li>应该是有办法把随着时间整个一维的温度变化都做个动图</li>
+</ul>
+<h1 id="今日总结"><a href="#今日总结" class="headerlink" title="今日总结"></a>今日总结</h1><ul>
+<li>emmm……突然想起来数学模型课结课的大作业做的也是一维热传导问题……当时我还在研究差分，任同学直接就推导出来理论解（太强了），直接代入数字给的最终结果。</li>
+<li>然后建模国赛也是做的一维热传导，不过是隐式差分法，当时还学了什么追赶法？（这个可以也用C和Fortran试着再写一遍）</li>
+<li>当年的我用matlab好像什么都可以会做。现在的我离开了Matlab仿佛啥也不会。（matlab令人头脑简单，不过可以直接点开变量看数据真的太方便了orz)</li>
+<li><strong>希望明天可以用fortran写这个问题，并且研究一下画图</strong></li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Daily/" rel="tag"># Daily</a>
+          
+            <a href="/tags/C语言/" rel="tag"># C语言</a>
+          
+            <a href="/tags/热传导/" rel="tag"># 热传导</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/30/200530/" rel="next" title="5月30日记">
+                <i class="fa fa-chevron-left"></i> 5月30日记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Ltxin</p>
+              <p class="site-description motion-element" itemprop="description">一只很笨的鸟</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#热传导方程"><span class="nav-number">1.</span> <span class="nav-text">热传导方程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一维"><span class="nav-number">1.1.</span> <span class="nav-text">一维</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题背景（摘抄自网络-）"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题背景（摘抄自网络 ）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#离散方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">离散方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#取参数"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">取参数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言代码"><span class="nav-number">1.1.3.</span> <span class="nav-text">C语言代码</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输入"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">输出</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#C语言算法总结"><span class="nav-number">1.1.4.</span> <span class="nav-text">C语言算法总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#今日总结"><span class="nav-number">2.</span> <span class="nav-text">今日总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ltxin</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
