@@ -262,6 +262,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/01/200601/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ltxin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ltxin's personal website">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/06/01/200601/" itemprop="url">6月1日记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-01T21:29:24+08:00">
+                2020-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Diary/" itemprop="url" rel="index">
+                    <span itemprop="name">Diary</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>六月开始了！加油！</p>
+</blockquote>
+<p>昨天那个问题的fortran代码，写是写出来了，但是没有调试完。<br>待解决的问题：</p>
+<ul>
+<li>simply fortran 怎么进行断点调试，为啥我设立的断点根本没用啊……（但是我学会用code block断点调试了，耶）</li>
+<li>为啥输出比预期有错误。（可能还是计算有问题，明天仔细断点调试一下）<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">program</span></span> f1</span><br><span class="line"><span class="keyword">implicit</span> <span class="keyword">none</span></span><br><span class="line">    <span class="keyword">integer</span>::i,n1,n2,n,coun</span><br><span class="line">    <span class="keyword">real</span>::a(<span class="number">100000</span>),b(<span class="number">100000</span>)</span><br><span class="line">    <span class="keyword">real</span>::dx,dt,t,L,alpha</span><br><span class="line">    n=<span class="number">0</span></span><br><span class="line">    dx=<span class="number">0.01</span></span><br><span class="line">    dt=<span class="number">0.001</span></span><br><span class="line">    t=<span class="number">10</span></span><br><span class="line">    L=<span class="number">0.2</span></span><br><span class="line">    alpha=<span class="number">1.42857</span>*<span class="number">10e-3</span></span><br><span class="line">    n1=<span class="built_in">int</span>(L/dx)</span><br><span class="line">    n2=<span class="built_in">int</span>(t/dt)</span><br><span class="line">    <span class="keyword">do</span> coun=<span class="number">1</span>,n1</span><br><span class="line">        <span class="keyword">if</span> (coun&lt;n1) <span class="keyword">then</span></span><br><span class="line">            a(coun)=<span class="number">10</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            a(coun)=<span class="number">20</span></span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">if</span> </span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">do</span> <span class="keyword">while</span>(n&lt;n2)</span><br><span class="line">        <span class="keyword">do</span> i=<span class="number">1</span>,n1+<span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> (i==<span class="number">0</span>) <span class="keyword">then</span></span><br><span class="line">                b(i)=<span class="number">10</span></span><br><span class="line">                a(i)=b(i)</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(i==n1+<span class="number">1</span>) <span class="keyword">then</span></span><br><span class="line">                b(i)=<span class="number">20</span></span><br><span class="line">                a(i)=b(i)</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            b(i)=a(i)+alpha*dt*(a(i+<span class="number">1</span>)-<span class="number">2</span>*a(i)+a(i-<span class="number">1</span>))/(dx*dx)</span><br><span class="line">            a(i)=b(i)</span><br><span class="line">            <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">            n=n+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">do</span> coun=<span class="number">1</span>,n1</span><br><span class="line">        <span class="built_in">write</span>(*,*) a(coun)</span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">do</span></span><br><span class="line"><span class="keyword">end</span> <span class="function"><span class="keyword">program</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="总结今天"><a href="#总结今天" class="headerlink" title="总结今天"></a>总结今天</h1><ul>
+<li>今天，在淘宝买了太多东西，有些负罪感，就在58同城投各种简历，可惜这个地方太鸡肋了……能投的工作和搬砖也没啥区别。</li>
+<li>希望明天能够搞定fortran 小型代码的调试问题。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/31/200531/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -367,7 +521,8 @@
 <li><a href="#取参数">取参数</a></li>
 </ul>
 </li>
-<li><a href="#c语言代码">C语言代码</a><ul>
+<li><a href="#数值计算">数值计算</a><ul>
+<li><a href="#c语言代码">C语言代码</a></li>
 <li><a href="#输入">输入</a></li>
 <li><a href="#输出">输出</a></li>
 </ul>
@@ -384,7 +539,7 @@
 <h3 id="问题背景（摘抄自网络-）"><a href="#问题背景（摘抄自网络-）" class="headerlink" title="问题背景（摘抄自网络 ）"></a>问题背景（摘抄自网络 ）</h3><p>在距离为L的两个半无限长壁面之间有传热的流体。假设整个流场初始时刻具有温度T=T1(常数，本题中取10摄氏度)，并处于平衡状态(即：初始时刻壁面和流体的温度都为10摄氏度)。两个壁面的初始温度Tw1=Tw2=T1（本题中即为10摄氏度）。现假设在t=0时刻，右边的壁面温度突然增加到Tw2=T2并保持在T2（本题中取T2为20摄氏度），而左边的壁面温度保持在Tw1=T1（即10摄氏度）。求时间t1、t2和时间趋于无穷时壁面间流体温度的分布？</p>
 <h3 id="离散方法"><a href="#离散方法" class="headerlink" title="离散方法"></a>离散方法</h3><p>我也不知道这算啥离散,算是显式吧我觉得……<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\frac&#123;u(x_i,t+\Delta t)-u(x_i,t)&#125;&#123;\Delta t&#125;=\alpha\cdot\frac&#123;u(x_&#123;i+1&#125;,t)-2u(x_&#123;i&#125;,t)+u(x_&#123;i-1&#125;,t)&#125;&#123;\Delta x^2&#125;</span><br></pre></td></tr></table></figure></p>
 <h4 id="取参数"><a href="#取参数" class="headerlink" title="取参数"></a>取参数</h4><p>长度L=0.2<br>扩散系数$\alpha=1.42857\times10e-3$</p>
-<h3 id="C语言代码"><a href="#C语言代码" class="headerlink" title="C语言代码"></a>C语言代码</h3><p>先用我熟悉的语言，明天试试fortran(哭泣……我又在拖延了)<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> dx,dt,t,L=<span class="number">0.2</span>,a[<span class="number">100000</span>],b[<span class="number">100000</span>],alpha=<span class="number">1.42857</span>*<span class="number">10e-3</span>;</span><br><span class="line">    <span class="comment">/*dx表示delta(x)，dt表示delta(t)，alpha为热扩散率。由于数组大小随输入值而变化，所以取得比较大*/</span></span><br><span class="line">    <span class="keyword">int</span> i,n1,n2,n=<span class="number">0</span>,total=<span class="number">0</span>;</span><br><span class="line">    FILE *F;<span class="comment">//文件指针</span></span><br><span class="line">    F=fopen(<span class="string">"data.txt"</span>,<span class="string">"w"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data dx:\n"</span>);          <span class="comment">/*输入壁面间网格节点的间距dx*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;dx);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data dt:\n"</span>);          <span class="comment">/*输入时间推进的步长dt*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;dt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data t:\n"</span>);           <span class="comment">/*输入计算的总时间，代表题目中的t1、t2等*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;t);</span><br><span class="line">    n1=(<span class="keyword">int</span>)(L/dx);</span><br><span class="line">    n2=(<span class="keyword">int</span>)(t/dt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"n1=%d  n2=%d\n"</span>,n1,n2);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;     <span class="comment">/*初始赋值*/</span></span><br><span class="line">        <span class="keyword">if</span>(i&lt;n1)a[i]=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">else</span> a[i]=<span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(n&lt;n2)&#123;    <span class="comment">/*时间到了，停止循环*/</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;</span><br><span class="line">        <span class="comment">/*计算*/</span></span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">            b[i]=<span class="number">10</span>;</span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;     <span class="comment">/*表示左壁面的温度始终保持在10摄氏度*/</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(i==n1)&#123;</span><br><span class="line">            b[i]=<span class="number">20</span>;</span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;     <span class="comment">/*表示右壁面的温度始终保持在20摄氏度*/</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            b[i]=a[i]+alpha*dt*(a[i+<span class="number">1</span>]<span class="number">-2</span>*a[i]+a[i<span class="number">-1</span>])/(dx*dx);   <span class="comment">/*差分方程的表达式*/</span></span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;</span><br><span class="line">        n++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*输出文件*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(F,<span class="string">"%8.4f"</span>,a[i]);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%8.4f"</span>,a[i]);</span><br><span class="line">            <span class="keyword">if</span>(total%<span class="number">10</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">            total++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fprintf</span>(F,<span class="string">"\n"</span>);</span><br><span class="line">    fclose(F);                       <span class="comment">/*一直迭代到满足的次数为止*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="数值计算"><a href="#数值计算" class="headerlink" title="数值计算"></a>数值计算</h3><h4 id="C语言代码"><a href="#C语言代码" class="headerlink" title="C语言代码"></a>C语言代码</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> dx,dt,t,L=<span class="number">0.2</span>,a[<span class="number">100000</span>],b[<span class="number">100000</span>],alpha=<span class="number">1.42857</span>*<span class="number">10e-3</span>;</span><br><span class="line">    <span class="comment">/*dx表示delta(x)，dt表示delta(t)，alpha为热扩散率。由于数组大小随输入值而变化，所以取得比较大*/</span></span><br><span class="line">    <span class="keyword">int</span> i,n1,n2,n=<span class="number">0</span>,total=<span class="number">0</span>;</span><br><span class="line">    FILE *F;<span class="comment">//文件指针</span></span><br><span class="line">    F=fopen(<span class="string">"data.txt"</span>,<span class="string">"w"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data dx:\n"</span>);          <span class="comment">/*输入壁面间网格节点的间距dx*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;dx);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data dt:\n"</span>);          <span class="comment">/*输入时间推进的步长dt*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;dt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"input data t:\n"</span>);           <span class="comment">/*输入计算的总时间，代表题目中的t1、t2等*/</span></span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%f"</span>,&amp;t);</span><br><span class="line">    n1=(<span class="keyword">int</span>)(L/dx);</span><br><span class="line">    n2=(<span class="keyword">int</span>)(t/dt);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"n1=%d  n2=%d\n"</span>,n1,n2);</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;     <span class="comment">/*初始赋值*/</span></span><br><span class="line">        <span class="keyword">if</span>(i&lt;n1)a[i]=<span class="number">10</span>;</span><br><span class="line">        <span class="keyword">else</span> a[i]=<span class="number">20</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(n&lt;n2)&#123;    <span class="comment">/*时间到了，停止循环*/</span></span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;</span><br><span class="line">        <span class="comment">/*计算*/</span></span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>)&#123;</span><br><span class="line">            b[i]=<span class="number">10</span>;</span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;     <span class="comment">/*表示左壁面的温度始终保持在10摄氏度*/</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(i==n1)&#123;</span><br><span class="line">            b[i]=<span class="number">20</span>;</span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;     <span class="comment">/*表示右壁面的温度始终保持在20摄氏度*/</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            b[i]=a[i]+alpha*dt*(a[i+<span class="number">1</span>]<span class="number">-2</span>*a[i]+a[i<span class="number">-1</span>])/(dx*dx);   <span class="comment">/*差分方程的表达式*/</span></span><br><span class="line">            a[i]=b[i];</span><br><span class="line">        &#125;</span><br><span class="line">        n++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*输出文件*/</span></span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;=n1;i++)&#123;</span><br><span class="line">            <span class="built_in">fprintf</span>(F,<span class="string">"%8.4f"</span>,a[i]);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%8.4f"</span>,a[i]);</span><br><span class="line">            <span class="keyword">if</span>(total%<span class="number">10</span>==<span class="number">0</span>)<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">            total++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">fprintf</span>(F,<span class="string">"\n"</span>);</span><br><span class="line">    fclose(F);                       <span class="comment">/*一直迭代到满足的次数为止*/</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>dx=0.01<br>dt=0.001<br>t=10</p>
 <h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p> 10.0000 10.3549 10.7139 11.0804 11.4577 11.8488 12.2561 12.6821 13.1283 13.5962 14.0863 14.5990 15.1338 15.6898 16.2656 16.8592 17.4683 18.0901 18.7215 19.3593 20.0000</p>
 <h3 id="C语言算法总结"><a href="#C语言算法总结" class="headerlink" title="C语言算法总结"></a>C语言算法总结</h3><ul>
@@ -732,7 +887,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/25/Fortran200525/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/25/200525/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ltxin">
@@ -751,7 +906,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/25/Fortran200525/" itemprop="url">5月25学习日记</a></h1>
+                <a class="post-title-link" href="/2020/05/25/200525/" itemprop="url">5月25学习日记</a></h1>
         
 
         <div class="post-meta">
@@ -894,7 +1049,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/fortran200524/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/24/200524/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ltxin">
@@ -913,7 +1068,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/24/fortran200524/" itemprop="url">5月24学习日记</a></h1>
+                <a class="post-title-link" href="/2020/05/24/200524/" itemprop="url">5月24学习日记</a></h1>
         
 
         <div class="post-meta">
@@ -1044,7 +1199,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/learnFortran/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/18/200523/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ltxin">
@@ -1063,7 +1218,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/18/learnFortran/" itemprop="url">5月22和5月23的总结</a></h1>
+                <a class="post-title-link" href="/2020/04/18/200523/" itemprop="url">5月22和5月23的总结</a></h1>
         
 
         <div class="post-meta">
@@ -1847,137 +2002,13 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/03/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ltxin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ltxin's personal website">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/03/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-03T17:33:59+08:00">
-                2019-02-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -2021,7 +2052,7 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2043,7 +2074,7 @@ s.t. ~~\sum_{i=1}^3 x_{ij}=A_j \\
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
